@@ -1,0 +1,399 @@
+{
+  "_comment": "Синтетические данные для портфолио. Vendor A..E — абстрактные поставщики.",
+  "vendors": [
+    {
+      "id": "vendor_a",
+      "name": "Vendor A",
+      "profile": "плетёные набивки, ленты (бренд AX)",
+      "lead_time_days": 5,
+      "min_order_rub": 10000
+    },
+    {
+      "id": "vendor_b",
+      "name": "Vendor B",
+      "profile": "СНП ГОСТ/ОСТ, кольца RTJ; набивки ТМ",
+      "lead_time_days": 10,
+      "min_order_rub": 25000
+    },
+    {
+      "id": "vendor_c",
+      "name": "Vendor C",
+      "profile": "неметаллические прокладки, кольца КГН; набивки КС",
+      "lead_time_days": 7,
+      "min_order_rub": 15000
+    },
+    {
+      "id": "vendor_d",
+      "name": "Vendor D",
+      "profile": "медные шайбы, ГОСТ-набивки; набивки Графитон",
+      "lead_time_days": 3,
+      "min_order_rub": 5000
+    },
+    {
+      "id": "vendor_e",
+      "name": "Vendor E",
+      "profile": "импортные стандарты ASME, набивки EXP",
+      "lead_time_days": 21,
+      "min_order_rub": 50000
+    }
+  ],
+  "supplier_rules": [
+    [
+      "Набивки",
+      "AX",
+      [
+        "Vendor A"
+      ]
+    ],
+    [
+      "Набивки",
+      "",
+      [
+        "Vendor D"
+      ]
+    ],
+    [
+      "СНП",
+      "",
+      [
+        "Vendor B"
+      ]
+    ],
+    [
+      "Овальные",
+      "",
+      [
+        "Vendor B"
+      ]
+    ],
+    [
+      "Прокладки",
+      "",
+      [
+        "Vendor D"
+      ],
+      {
+        "material_tokens": [
+          "Медь"
+        ]
+      }
+    ],
+    [
+      "Прокладки",
+      "",
+      [
+        "Vendor C"
+      ],
+      {
+        "material_not": [
+          "Медь"
+        ]
+      }
+    ]
+  ],
+  "supplier_groups": [
+    {
+      "id": "snp_gost_ost",
+      "title": "СНП ГОСТ/ОСТ — любая сталь",
+      "suppliers": [
+        "Vendor B",
+        "Vendor C"
+      ],
+      "rules": {
+        "categories": [
+          "СНП"
+        ],
+        "standards": [
+          "ГОСТ",
+          "ОСТ"
+        ]
+      }
+    },
+    {
+      "id": "snp_asme_ss",
+      "title": "СНП ASME — нержавеющая 304/316",
+      "suppliers": [
+        "Vendor E",
+        "Vendor B"
+      ],
+      "rules": {
+        "categories": [
+          "СНП"
+        ],
+        "standards": [
+          "ASME"
+        ],
+        "material_tokens": [
+          "304",
+          "316"
+        ]
+      }
+    },
+    {
+      "id": "snp_asme_other",
+      "title": "СНП ASME — прочие стали",
+      "suppliers": [
+        "Vendor C"
+      ],
+      "rules": {
+        "categories": [
+          "СНП"
+        ],
+        "standards": [
+          "ASME"
+        ],
+        "material_not": [
+          "304",
+          "316"
+        ]
+      }
+    },
+    {
+      "id": "rings_oval_oct",
+      "title": "Кольца овальные и восьмиугольные",
+      "suppliers": [
+        "Vendor B",
+        "Vendor E"
+      ],
+      "rules": {
+        "categories": [
+          "Овальные",
+          "Восьмиугольные"
+        ]
+      }
+    },
+    {
+      "id": "pack_ax",
+      "title": "Набивки AX",
+      "suppliers": [
+        "Vendor A"
+      ],
+      "rules": {
+        "categories": [
+          "Набивки"
+        ],
+        "mark_tokens": [
+          "AX"
+        ]
+      }
+    },
+    {
+      "id": "pack_tm",
+      "title": "Набивки ТМ",
+      "suppliers": [
+        "Vendor B"
+      ],
+      "rules": {
+        "categories": [
+          "Набивки"
+        ],
+        "mark_tokens": [
+          "ТМ-"
+        ]
+      }
+    },
+    {
+      "id": "pack_kc",
+      "title": "Набивки КС",
+      "suppliers": [
+        "Vendor C"
+      ],
+      "rules": {
+        "categories": [
+          "Набивки"
+        ],
+        "mark_tokens": [
+          "КС "
+        ]
+      }
+    },
+    {
+      "id": "pack_grafiton",
+      "title": "Набивки Графитон",
+      "suppliers": [
+        "Vendor D"
+      ],
+      "rules": {
+        "categories": [
+          "Набивки"
+        ],
+        "mark_tokens": [
+          "Графитон"
+        ]
+      }
+    },
+    {
+      "id": "pack_exp",
+      "title": "Набивки EXP",
+      "suppliers": [
+        "Vendor E"
+      ],
+      "rules": {
+        "categories": [
+          "Набивки"
+        ],
+        "mark_tokens": [
+          "EXP"
+        ]
+      }
+    },
+    {
+      "id": "pack_gost",
+      "title": "Набивки по ГОСТ (АП-31, ЛС, ХБП)",
+      "suppliers": [
+        "Vendor D",
+        "Vendor C"
+      ],
+      "rules": {
+        "categories": [
+          "Набивки"
+        ],
+        "mark_tokens": [
+          "АП-31",
+          "ЛС",
+          "ХБП"
+        ]
+      }
+    },
+    {
+      "id": "gaskets_copper",
+      "title": "Шайбы медные",
+      "suppliers": [
+        "Vendor D"
+      ],
+      "rules": {
+        "categories": [
+          "Прокладки"
+        ],
+        "material_tokens": [
+          "Медь"
+        ]
+      }
+    },
+    {
+      "id": "gaskets_soft",
+      "title": "Прокладки неметаллические",
+      "suppliers": [
+        "Vendor C",
+        "Vendor D"
+      ],
+      "rules": {
+        "categories": [
+          "Прокладки"
+        ],
+        "material_not": [
+          "Медь"
+        ]
+      }
+    },
+    {
+      "id": "kgn_rings",
+      "title": "Кольца КГН",
+      "suppliers": [
+        "Vendor C"
+      ],
+      "rules": {
+        "categories": [
+          "Кольца КГН"
+        ]
+      }
+    },
+    {
+      "id": "tapes",
+      "title": "Ленты уплотнительные",
+      "suppliers": [
+        "Vendor A"
+      ],
+      "rules": {
+        "categories": [
+          "Ленты"
+        ]
+      }
+    },
+    {
+      "id": "fasteners",
+      "title": "Крепёж (категории пока нет в каталоге)",
+      "suppliers": [
+        "Vendor E"
+      ],
+      "rules": {
+        "categories": [
+          "Крепеж"
+        ]
+      }
+    }
+  ],
+  "brand_equivalents": {
+    "supplier_per_brand": {
+      "Vendor A": "Vendor A",
+      "Vendor B": "Vendor B",
+      "Vendor C": "Vendor C",
+      "Vendor D": "Vendor D",
+      "Vendor E": "Vendor E"
+    },
+    "classes": [
+      {
+        "id": "C1",
+        "title": "графит + хлопок (общепром)",
+        "members": [
+          {
+            "brand": "Vendor A",
+            "mark": "AX 101"
+          },
+          {
+            "brand": "Vendor B",
+            "mark": "ТМ-110"
+          },
+          {
+            "brand": "Vendor C",
+            "mark": "КС 1100"
+          },
+          {
+            "brand": "Vendor D",
+            "mark": "Графитон 101"
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "title": "графит + армирование проволокой (пар, высокие t°)",
+        "members": [
+          {
+            "brand": "Vendor A",
+            "mark": "AX 500"
+          },
+          {
+            "brand": "Vendor B",
+            "mark": "ТМ-500"
+          },
+          {
+            "brand": "Vendor C",
+            "mark": "КС 3000"
+          },
+          {
+            "brand": "Vendor E",
+            "mark": "EXP 30"
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "title": "PTFE (химстойкая)",
+        "members": [
+          {
+            "brand": "Vendor A",
+            "mark": "AX 750"
+          },
+          {
+            "brand": "Vendor C",
+            "mark": "КС 5100"
+          },
+          {
+            "brand": "Vendor D",
+            "mark": "Графитон 750"
+          }
+        ]
+      }
+    ]
+  }
+}

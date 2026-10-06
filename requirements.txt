@@ -1,0 +1,5 @@
+pandas>=3.0
+openpyxl>=3.1
+# только для tests/ (smoke-тест GUI); приложению и build_mock.py не нужен
+pytest>=8
+# GUI — tkinter из стандартной библиотеки (на Linux: пакет python3-tk)
